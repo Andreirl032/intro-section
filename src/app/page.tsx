@@ -1,11 +1,11 @@
 import Image from "next/image";
-import Header from "../../components/Header";
+import Header from "../components/Header";
 
 export default function Home() {
   return (
     <>
-      <Header />
       <body>
+      <Header />
         <h1>Make</h1>
         <h1>remote work</h1>
 
