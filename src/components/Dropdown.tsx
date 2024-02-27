@@ -26,13 +26,25 @@ const Dropdown = (props: Props) => {
   return (
     <>
       <div className="relative">
-        <button className="hover:text-black flex flex-row items-center gap-2" onClick={toggle}>
+        <button
+          className="hover:text-black flex flex-row items-center gap-2 font-medium"
+          onClick={toggle}
+        >
           <p>{item.title}</p>
-          <Image alt="down-arrow" src={downArrow} width={10} height={10} />
+          <Image
+            alt="down-arrow"
+            src={downArrow}
+            width={10}
+            height={10}
+            className={`${isOpen && "rotate-180"}`}
+            style={{transitionProperty: "color, background-color, border-color, text-decoration-color, fill, stroke, opacity, box-shadow, transform, filter, backdrop-filter",
+              transitionTimingFunction: "cubic-bezier(0.4, 0, 0.2, 1)",
+              transitionDuration: "400ms"}}
+          />
         </button>
         <div
           className={`absolute right-0 top-8 z-30 w-44 min-h-9 flex flex-col gap-1 py-4 pl-3 justify-around bg-white rounded-xl border-1 ${transClass}`}
-          style={{boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px"}}
+          style={{ boxShadow: "rgba(0, 0, 0, 0.25) 0px 5px 15px" }}
         >
           {menuItems.map((item) => (
             <Link
@@ -42,21 +54,26 @@ const Dropdown = (props: Props) => {
               onClick={toggle}
             >
               <div className="flex gap-4 items-center">
-              {item.icon && <Image alt="dropdown-icon" src={item.icon} width={20} height={20}></Image>}
-              {item.title}
+                {item.icon && (
+                  <Image
+                    alt="dropdown-icon"
+                    src={item.icon}
+                    width={20}
+                    height={20}
+                  ></Image>
+                )}
+                {item.title}
               </div>
             </Link>
           ))}
         </div>
       </div>
 
-      {isOpen ? (
+      {isOpen && (
         <div
           className="fixed top-0 right-0 bottom-0 left-0 z-20 bg-black/0"
           onClick={toggle}
         ></div>
-      ) : (
-        <></>
       )}
     </>
   );
