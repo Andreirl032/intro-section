@@ -12,9 +12,9 @@ export default function Home() {
     <>
       <body>
         <Header />
-        <main className="flex flex-row items-start mx-32 mt-20">
+        <main className="flex flex-row items-start mx-36 mt-20">
         <div className="flex flex-1 flex-col items-start gap-12">
-          <div className="font-bold text-6xl">
+          <div className="font-bold leading-none text-[5rem]">
             <h1>Make</h1>
             <h1>remote work</h1>
           </div>
